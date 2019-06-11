@@ -1,5 +1,5 @@
 ///----------------------------------------------------------------------------|
-/// Процедуры для работы с Windows консолью.
+/// РџСЂРѕС†РµРґСѓСЂС‹ РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ Windows РєРѕРЅСЃРѕР»СЊСЋ.
 ///----------------------------------------------------------------------------|
 #pragma once
 
@@ -231,7 +231,7 @@ struct cInput_system
     SHORT y(){return Cursor.coord.Y;}
 
 private:
-    ///-Курсор-----------------------------------------------------------------|
+    ///-РљСѓСЂСЃРѕСЂ-----------------------------------------------------------------|
     class cCursor
     {
     public://------------------------------------------------------------------|
@@ -327,7 +327,7 @@ void setfont_01()
     SetConsoleFont = reinterpret_cast<FN_SETCONSOLEFONT>
                                      (GetProcAddress (hm, "SetConsoleFont") );
     SetConsoleFont(Input_system.hCon, 9);
-    //6 в Windows 7 ставит Lucida 12
+    //6 РІ Windows 7 СЃС‚Р°РІРёС‚ Lucida 12
 }
 
 void showcursor(BOOL b = TRUE)
@@ -338,7 +338,7 @@ void showcursor(BOOL b = TRUE)
 }
 
 ///ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
-/// Вывод мессаги.
+/// Р’С‹РІРѕРґ РјРµСЃСЃР°РіРё.
 ///ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 #include <string>
 class cMess
@@ -346,11 +346,11 @@ class cMess
 public:
     cMess(
         std::string _s, 
-        SHORT        x,          /// Позиция Х на экране.
-        SHORT        y,          /// Позиция Y на экране.
-        WORD         color_fg,   /// Цвет текста знакоместа.
-        WORD         color_bg,   /// Цвет заднего фона.
-        size_t       len         /// Ограничение длины строки на экране.
+        SHORT        x,          /// РџРѕР·РёС†РёСЏ РҐ РЅР° СЌРєСЂР°РЅРµ.
+        SHORT        y,          /// РџРѕР·РёС†РёСЏ Y РЅР° СЌРєСЂР°РЅРµ.
+        WORD         color_fg,   /// Р¦РІРµС‚ С‚РµРєСЃС‚Р° Р·РЅР°РєРѕРјРµСЃС‚Р°.
+        WORD         color_bg,   /// Р¦РІРµС‚ Р·Р°РґРЅРµРіРѕ С„РѕРЅР°.
+        size_t       len         /// РћРіСЂР°РЅРёС‡РµРЅРёРµ РґР»РёРЅС‹ СЃС‚СЂРѕРєРё РЅР° СЌРєСЂР°РЅРµ.
         )
         : length_max(len),
           SS(_s)
@@ -367,9 +367,9 @@ public:
         
         str = SS + toString(_s);
         if(str.length() > length_max)
-        {   str = str.substr   (0, length_max); // усекаем до length_max
+        {   str = str.substr   (0, length_max); // СѓСЃРµРєР°РµРј РґРѕ length_max
             // error
-            // Выести сообщение:
+            // Р’С‹РµСЃС‚Рё СЃРѕРѕР±С‰РµРЅРёРµ:
             str[length_max-1] = '.';
             str[length_max-2] = '.';
             str[length_max-3] = '.';

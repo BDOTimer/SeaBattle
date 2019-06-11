@@ -1,15 +1,15 @@
 ///----------------------------------------------------------------------------|
-/// Cкелетик пржэкта SeaBatle:
-///-------------------------------------------------------статус:В разработке...
+/// CРєРµР»РµС‚РёРє РїСЂР¶СЌРєС‚Р° SeaBatle:
+///-------------------------------------------------------СЃС‚Р°С‚СѓСЃ:Р’ СЂР°Р·СЂР°Р±РѕС‚РєРµ...
 #include <iostream>
 #include "Console.h"
 
 
 ///----------------------------------------------------------------------------|
-const int NUMBERMAX_BOAT_TYPE  =   4; /// Количество типов кораблей.
-const int MAX_PALUB            =   4; /// Mаксимальное количество палуб.
-const int MAX_BOAT             =  10; /// Количество кораблей.
-const int NUM_BOAT[MAX_BOAT]   = {4,3,3,2,2,2,1,1,1,1}; /// Палубы.
+const int NUMBERMAX_BOAT_TYPE  =   4; /// РљРѕР»РёС‡РµСЃС‚РІРѕ С‚РёРїРѕРІ РєРѕСЂР°Р±Р»РµР№.
+const int MAX_PALUB            =   4; /// MР°РєСЃРёРјР°Р»СЊРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РїР°Р»СѓР±.
+const int MAX_BOAT             =  10; /// РљРѕР»РёС‡РµСЃС‚РІРѕ РєРѕСЂР°Р±Р»РµР№.
+const int NUM_BOAT[MAX_BOAT]   = {4,3,3,2,2,2,1,1,1,1}; /// РџР°Р»СѓР±С‹.
 
 enum STATUS 
 {   STATUS_EMPTY = 0,
@@ -19,16 +19,16 @@ enum STATUS
     STATUS_ZAPRET__INIT
 };
 
-///-Палуба:---oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo->
+///-РџР°Р»СѓР±Р°:---oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo->
 struct sPaluba
 {   int x, y;
-    int status; /// 0 - пусто.
-                /// 1 - целый отсек корабля.
-                /// 2 - подбитый отсек корабля.
-    int n;      /// Номер корабля.
+    int status; /// 0 - РїСѓСЃС‚Рѕ.
+                /// 1 - С†РµР»С‹Р№ РѕС‚СЃРµРє РєРѕСЂР°Р±Р»СЏ.
+                /// 2 - РїРѕРґР±РёС‚С‹Р№ РѕС‚СЃРµРє РєРѕСЂР°Р±Р»СЏ.
+    int n;      /// РќРѕРјРµСЂ РєРѕСЂР°Р±Р»СЏ.
 };
 
-///-Корабль:---ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo->
+///-РљРѕСЂР°Р±Р»СЊ:---ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo->
 class sBoat
 {   
 public: 
@@ -40,20 +40,20 @@ public:
 
     ///----------------------------------------------------------------------var
     sPaluba* p_paluba[MAX_PALUB];
-    int      amount_palub; /// Количество палуб.
+    int      amount_palub; /// РљРѕР»РёС‡РµСЃС‚РІРѕ РїР°Р»СѓР±.
 
     void show()
     {   cout << "\n";
-        cout << "Для одного корабля:--------------------------------------->\n";
+        cout << "Р”Р»СЏ РѕРґРЅРѕРіРѕ РєРѕСЂР°Р±Р»СЏ:--------------------------------------->\n";
         for(int i = 0; i < amount_palub; i++)
-        {   if(p_paluba[i] == NULL) cout << "Ахтунг! nullptr";
+        {   if(p_paluba[i] == NULL) cout << "РђС…С‚СѓРЅРі! nullptr";
             else
-            {   cout << "Палуба:------------------|||\n"
-                     << "Номер корабля:" << p_paluba[i]->n      << "\n"
-                     << "Координатa x: " << p_paluba[i]->x      << "\n"
-                     << "Координатa y: " << p_paluba[i]->y      << "\n"
-                     << "Статус:       " << p_paluba[i]->status << "\n"
-                     << "Кол.палуб:    " << amount_palub        << "\n\n";
+            {   cout << "РџР°Р»СѓР±Р°:------------------|||\n"
+                     << "РќРѕРјРµСЂ РєРѕСЂР°Р±Р»СЏ:" << p_paluba[i]->n      << "\n"
+                     << "РљРѕРѕСЂРґРёРЅР°С‚a x: " << p_paluba[i]->x      << "\n"
+                     << "РљРѕРѕСЂРґРёРЅР°С‚a y: " << p_paluba[i]->y      << "\n"
+                     << "РЎС‚Р°С‚СѓСЃ:       " << p_paluba[i]->status << "\n"
+                     << "РљРѕР».РїР°Р»СѓР±:    " << amount_palub        << "\n\n";
             }
         }
     }
@@ -66,7 +66,7 @@ public:
     }
 };
 
-///-Поле боя:---oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo->
+///-РџРѕР»Рµ Р±РѕСЏ:---oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo->
 class cField
 {   
 public:
@@ -146,7 +146,7 @@ public:
         return false;
     }
 
-    // Помечаем, куда можно пставить палубу:-----------------------------------|
+    // РџРѕРјРµС‡Р°РµРј, РєСѓРґР° РјРѕР¶РЅРѕ РїСЃС‚Р°РІРёС‚СЊ РїР°Р»СѓР±Сѓ:-----------------------------------|
     void set_forboat_init(SHORT X, SHORT Y)
     {
         const SHORT xx[3] = {-1, 0,  1};
@@ -193,7 +193,7 @@ private:
 
 };
 
-///-Игрок:---ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo->
+///-РРіСЂРѕРє:---ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo->
 class cPlayer
 {
 public: 
@@ -215,14 +215,14 @@ public:
     }
 
     void start_init_boat()///------------------------------------------------foo
-    {   // Инициализация boat[]
-        // Количество палуб:
+    {   // РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ boat[]
+        // РљРѕР»РёС‡РµСЃС‚РІРѕ РїР°Р»СѓР±:
         for(size_t i = 0; i < MAX_BOAT; i++)
         {   boat[i].amount_palub = NUM_BOAT[i];
         }
     }
     void computer_init_boat()
-    {   // Инициализация boat[]
+    {   // РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ boat[]
         ///...
     }
 
@@ -238,7 +238,7 @@ public:
     sBoat  boat[MAX_BOAT];
 
     void show()
-    {   cout << "\n===========================================Все корабли:===>";
+    {   cout << "\n===========================================Р’СЃРµ РєРѕСЂР°Р±Р»Рё:===>";
         for(int i =0; i < MAX_BOAT; i++)
         {   boat[i].show();
             //getchar();
@@ -270,10 +270,10 @@ public:
         
         int n  = 0;
         int nn;
-        /// Начинаем с 0 корабля:
+        /// РќР°С‡РёРЅР°РµРј СЃ 0 РєРѕСЂР°Р±Р»СЏ:
         for(nn = 0; nn < MAX_BOAT; nn++)
         {
-            /// Количество NUM_BOAT[nn] палуб:
+            /// РљРѕР»РёС‡РµСЃС‚РІРѕ NUM_BOAT[nn] РїР°Р»СѓР±:
             int j = NUM_BOAT[nn];
             while(true)
             {   int xx = rrand();
@@ -292,7 +292,7 @@ public:
             }
         }
         if(MAX_BOAT != nn)
-        {   cout << "ахтунг!\n";
+        {   cout << "Р°С…С‚СѓРЅРі!\n";
         }
     }
 
@@ -307,8 +307,8 @@ public:
         size_t num_palub;
 
         //---------------------------------------------------------------------|
-        // Получаем индексы палубы в массиве field
-        // по экранным координатам курсора:
+        // РџРѕР»СѓС‡Р°РµРј РёРЅРґРµРєСЃС‹ РїР°Р»СѓР±С‹ РІ РјР°СЃСЃРёРІРµ field
+        // РїРѕ СЌРєСЂР°РЅРЅС‹Рј РєРѕРѕСЂРґРёРЅР°С‚Р°Рј РєСѓСЂСЃРѕСЂР°:
         COORD get_xy_palub(SHORT screen_x, SHORT screen_y)
         {   COORD ccc = {   (screen_x - p->Field.poz.X - 6)/
                                         p->Field.STEP_X,
@@ -330,16 +330,16 @@ private:///--------------------------------------------------------------private
         {   //cout << "#";
             bool done = true;
             sPaluba _pp = pp;
-            int ZAS     = 0;           /// Защита от загнанного цикла...
+            int ZAS     = 0;           /// Р—Р°С‰РёС‚Р° РѕС‚ Р·Р°РіРЅР°РЅРЅРѕРіРѕ С†РёРєР»Р°...
             do{
-                if(ZAS++ > 100) break; /// Теряем палубы...
+                if(ZAS++ > 100) break; /// РўРµСЂСЏРµРј РїР°Р»СѓР±С‹...
                 done  = true;
                 pp    = _pp;
                 int r = rrand(0, 3);
                 //cout << "\r" << r ;
                 switch(r)
                 {   case 0:
-                        if(pp.x != 9) // На берег не вылазеем!!!
+                        if(pp.x != 9) // РќР° Р±РµСЂРµРі РЅРµ РІС‹Р»Р°Р·РµРµРј!!!
                         {   pp.x++;
                             done = false;
                         }
@@ -363,20 +363,20 @@ private:///--------------------------------------------------------------private
                         }
                         break;
                     default:
-                        cout << "Рандом сломался!!!\n";
+                        cout << "Р Р°РЅРґРѕРј СЃР»РѕРјР°Р»СЃСЏ!!!\n";
                 }
             }while((Field.paluba[pp.x][pp.y].status != STATUS_EMPTY) || done
-                   ); // Повторить если ячейка занята!
-            /// Внимание цикл может уйти в бесконечность где-нить в углу!
+                   ); // РџРѕРІС‚РѕСЂРёС‚СЊ РµСЃР»Рё СЏС‡РµР№РєР° Р·Р°РЅСЏС‚Р°!
+            /// Р’РЅРёРјР°РЅРёРµ С†РёРєР» РјРѕР¶РµС‚ СѓР№С‚Рё РІ Р±РµСЃРєРѕРЅРµС‡РЅРѕСЃС‚СЊ РіРґРµ-РЅРёС‚СЊ РІ СѓРіР»Сѓ!
             initpaluba(pp, _nn, i);
         }
     }
     void initpaluba(sPaluba& P, int _nn, int _pal)
     {   //cout << "\n@@@@@\n";
         Field.paluba[P.x][P.y].status = STATUS_LIVE;
-        Field.paluba[P.x][P.y].n      = _nn; // Номер корабля
+        Field.paluba[P.x][P.y].n      = _nn; // РќРѕРјРµСЂ РєРѕСЂР°Р±Р»СЏ
 
-        /// Клетка поля хранит собственные координаты:
+        /// РљР»РµС‚РєР° РїРѕР»СЏ С…СЂР°РЅРёС‚ СЃРѕР±СЃС‚РІРµРЅРЅС‹Рµ РєРѕРѕСЂРґРёРЅР°С‚С‹:
         Field.paluba[P.x][P.y].x      = P.x;
         Field.paluba[P.x][P.y].y      = P.y;
 
@@ -384,7 +384,7 @@ private:///--------------------------------------------------------------private
     }
 };
 
-///-Арбитр:---oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo->
+///-РђСЂР±РёС‚СЂ:---oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo->
 class sArbitrator
 {
 public: 
@@ -400,11 +400,11 @@ public:
     {   ///...
         PlayerI.Field.show();
         while(done)
-        {   // Обойдемся без полиформизма, хотя....
+        {   // РћР±РѕР№РґРµРјСЃСЏ Р±РµР· РїРѕР»РёС„РѕСЂРјРёР·РјР°, С…РѕС‚СЏ....
             PlayerI.stepI();
             PlayerComp.stepComp();
 
-            ///(это будет не здесь)Тест:
+            ///(СЌС‚Рѕ Р±СѓРґРµС‚ РЅРµ Р·РґРµСЃСЊ)РўРµСЃС‚:
             PlayerComp.generator  ();
             PlayerComp.Field.clear();
             PlayerComp.showgraf   ();
@@ -413,7 +413,7 @@ public:
             //calibr();
 
             if(Input_system.loop() == VK_ESCAPE) break;
-            getchar();///<<<---временно...
+            getchar();///<<<---РІСЂРµРјРµРЅРЅРѕ...
         }
         return false;
     }
@@ -438,7 +438,7 @@ public:
     }
 };
 
-///-Игра:---oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo->
+///-РРіСЂР°:---oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo->
 class cGame
 {
 public:

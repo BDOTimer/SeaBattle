@@ -11,7 +11,7 @@ int main()
     setfont_01();
     showcursor(FALSE);
     system    ("mode con cols=80 lines=31");
-    cout << "Ïðèâåò, ìèð!";
+    cout << "ÐŸÑ€Ð¸Ð²ÐµÑ‚, Ð¼Ð¸Ñ€!";
     //test();
     
     resizing_the_console_buffer_to_a_smaller_size();
